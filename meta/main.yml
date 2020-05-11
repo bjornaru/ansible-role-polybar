@@ -1,0 +1,20 @@
+galaxy_info:
+  author: bjornaru
+  role_name: polybar
+  description: A fast and easy-to-use tool for creating status bars
+  company:
+  license: license (BSD)
+  min_ansible_version: 2.9
+  platforms:
+    - name: Debian
+      versions:
+      - Buster
+    - name: Ubuntu
+      versions:
+      - bionic
+  galaxy_tags:
+    - desktop
+    - polybar
+    - windowmanager
+    - wm
+dependencies: []

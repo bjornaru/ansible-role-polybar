@@ -1,0 +1,14 @@
+---
+
+# Role: bjornaru.polybar
+# File: tasks/main.yml
+
+- name: Include Debian OS Family specific variables
+  include_vars: Debian.yml
+  when: ansible_os_family == 'Debian'
+
+
+- include: install.yml
+  when: ansible_os_family == 'Debian'
+
+...

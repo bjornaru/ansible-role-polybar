@@ -1,0 +1,50 @@
+---
+
+# Role: bjornaru.polybar
+# File: tasks/install.yml
+
+- name: Check if polybar is installed
+  stat:
+    path: /usr/local/bin/polybar
+  register: polybar
+
+- name: Install build dependencies
+  become: yes
+  package:
+    name: "{{ polybar_build_packages }}"
+    state: "{{ polybar_build_packages_state }}"
+
+- name: Clone polybar git repo
+  git:
+    repo: https://github.com/jaagr/polybar
+    dest: "{{ polybar_git_path }}"
+    version: "{{ polybar_version }}"
+  when: not polybar.stat.exists
+
+- name: Prepare build folders
+  file:
+    path: "{{ polybar_git_path }}/build"
+    state: directory
+    mode: 0777
+  when: not polybar.stat.exists
+
+- name: cmake from "{{ polybar_git_path }}/build"
+  command:
+    chdir: "{{ polybar_git_path }}/build"
+    cmd: cmake ..
+  when: not polybar.stat.exists
+
+- name: Run make
+  become: yes
+  make:
+    chdir: "{{ polybar_git_path }}/build"
+  when: not polybar.stat.exists
+
+- name: Run make install
+  become: yes
+  make:
+    chdir: "{{ polybar_git_path }}/build"
+    target: install
+  when: not polybar.stat.exists
+
+...

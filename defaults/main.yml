@@ -1,0 +1,11 @@
+---
+
+# Role: bjornaru.polybar
+# File: defaults/main.yml
+
+polybar_build_packages_state: present
+
+polybar_git_path: /tmp/polybar
+polybar_version: 3.4.2
+
+...

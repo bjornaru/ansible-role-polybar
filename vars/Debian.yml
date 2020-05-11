@@ -1,0 +1,32 @@
+---
+
+# Role: bjornaru.polybar
+# File: vars/Debian.yml
+
+polybar_build_packages:
+  - build-essential
+  - cmake
+  - cmake-data
+  - git
+  - libasound2-dev
+  - libcairo2-dev
+  - libcurl4-openssl-dev
+  - libmpdclient-dev
+  - libnl-genl-3-dev
+  - libpulse-dev
+  - libjsoncpp-dev
+  - libxcb1-dev
+  - libxcb-composite0-dev
+  - libxcb-cursor-dev
+  - libxcb-ewmh-dev
+  - libxcb-icccm4-dev
+  - libxcb-image0-dev
+  - libxcb-randr0-dev
+  - libxcb-util0-dev
+  - libxcb-xkb-dev
+  - libxcb-xrm-dev
+  - pkg-config
+  - python-xcbgen
+  - xcb-proto
+
+...
